@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Listings</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f5f5f5;
+    }
+    h1 { text-align: center; }
+    #adminLogin, #addHomeForm, #interestForm {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .home-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin: 10px;
+      display: inline-block;
+      width: 250px;
+      vertical-align: top;
+    }
+    .home-card img {
+      width: 100%;
+      border-radius: 6px;
+      height: 160px;
+      object-fit: cover;
+    }
+    button {
+      background: #0078ff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #005fcc; }
+    #addHomeForm, #interestForm {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏡 My Home Listings</h1>
+
+  <!-- Admin login -->
+  <div id="adminLogin">
+    <h3>Admin Access</h3>
+    <input type="password" id="adminKey" placeholder="Enter admin key">
+    <button onclick="checkAdminKey()">Unlock Add Home</button>
+  </div>
+
+  <!-- Admin form to add homes -->
+  <div id="addHomeForm">
+    <h3>Add a New Home</h3>
+    <input type="text" id="homeTitle" placeholder="Home Title" required><br><br>
+    <input type="file" id="homeImage" accept="image/*"><br><br>
+    <textarea id="homeDesc" placeholder="Home Description"></textarea><br><br>
+    <button onclick="addHome()">Add Home</button>
+  </div>
+
+  <div id="homeList"></div>
+
+  <!-- Interest Form -->
+  <div id="interestForm">
+    <h3>Interested in this home?</h3>
+    <input type="email" id="userEmail" placeholder="Your Email" required><br><br>
+    <input type="text" id="userPhone" placeholder="Your Phone Number" required><br><br>
+    <button onclick="sendInterest()">Send Interest</button>
+  </div>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <!-- Link to external JS file -->
+  <script src="home.js"></script>
+
+</body>
+</html>
